@@ -1,3 +1,4 @@
+import type React from "react";
 import style from "./Text.module.css";
 
 interface TextProps {

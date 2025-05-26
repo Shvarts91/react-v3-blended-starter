@@ -11,6 +11,7 @@ export default function Form({ onSubmit }: FormProps) {
   const handleSubmit = (formData: FormData) => {
     const searchQuery = formData.get("search") as string;
     if (searchQuery !== "") onSubmit(searchQuery);
+    if (!searchQuery) toast.error("Please enter search query");
   };
 
   return (
