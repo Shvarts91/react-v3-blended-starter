@@ -33,10 +33,8 @@ export const exchangeCurrency = async (
   return { ...query, rate: info.rate, result };
 };
 
-export const latestRates = async (params) => {
-  const { data } = await instance.get(`/latest`, {
-    params,
-  });
+export const latestRates = async (baseCurrency: string): Promise<[string, number][]> => {
+  const { data } = await instance.get(`/latest?symbols&base=${baseCurrency}`);
 
-  return Object.entries(data.rates);
+  return Object.entries(data.rates) as [string, number][];
 };
